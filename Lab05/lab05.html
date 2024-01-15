@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>lab05 - JavaScript with jQuery</title>
+        <!--jQuery-->
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script>
+
+        <!-- Bootstrap 5-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+        <!--HTML2CANVAS and CANVAS2IMAGE-->
+        <script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+        
+        <!--Linking External CSS File-->
+        <link rel="stylesheet" href="style.css">
+        
+        <script>
+            function exitFull() {
+                $("#animated-img").animate({width:'50%', height:'auto'}, 5000);
+                document.getElementById("exit").style.display = "none";
+            }
+
+            function removeBody(id) {
+                let oldHTML = document.getElementById("body-parts").innerHTML;
+                let bodyArray = oldHTML.split("</label>");
+                let newHTML = "";
+                var regexObj = new RegExp("id=\""+id+"\"");
+                for (let b of bodyArray) {
+                    if (b.match(regexObj)) {
+                        let imgarray = b.split("\n");
+                        for (let x of imgarray) {
+                            if (x.match(regexObj)) {
+                                var img = x;
+                            }
+                        }
+                    }
+                    else {
+                        newHTML += b;
+                        newHTML += "</label>";
+                    }
+                }
+                document.getElementById("body-parts").innerHTML=newHTML;
+                return img;
+            }
+
+            function addBodyPart(id, location){ 
+                $(document).ready(function() {  
+                    let img = removeBody(id);
+                    let pPos = $("#potato-container").position();
+
+                    document.getElementById(location+"-container").innerHTML = img;
+                });
+                document.getElementById(location).disabled = true;
+            }
+
+            function checkSelected (){
+                let val = document.querySelector('input[name="body"]:checked').value;
+                if(val != null) {
+                    return val;
+                }
+                else {
+                    return "";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <h1>Problem 1 - Make a Mr.Potato Head</h1>
+            <div class="row">
+                <div class="col-sm-5" style="padding: 50px; text-align: center;">
+                    <label for="body-parts">Select the Body Part then the desired location button:</label>
+                    <div id="body-parts">
+                        <!--All the Avalible Parts-->
+                        <label>
+                            <input  type="radio"  name="body" value="hat"></option> 
+                            <img id="hat" src="hat.png" width="100px">
+                        </label>
+                        <label>
+                            <input type="radio"  name="body" value="nose"></option> 
+                            <img id="nose" src="nose.png" width="100px">
+                        </label>
+                        <label>
+                            <input type="radio"  name="body" value="eyes"></option> 
+                            <img id="eyes" src="eyes.png" width="100px">
+                        </label>
+                        <label>
+                            <input type="radio"  name="body" value="mouth"></option> 
+                            <img id="mouth" src="mouth.png" width="100px">
+                        </label>
+                    </div>
+                    <br>
+                    <div id="locations">
+                        
+                        <label for="locations"></label>
+                        <input id="top" type="button" onclick="addBodyPart(checkSelected(),'top')" value="Top">
+                        <input id="middle" type="button" onclick="addBodyPart(checkSelected(),'middle')" value="Middle">
+                        <input id="center" type="button" onclick="addBodyPart(checkSelected(),'center')" value="Center">
+                        <input id="bottom" type="button" onclick="addBodyPart(checkSelected(),'bottom')" value="Bottom">
+                    </div>
+                    <br>
+                    <input id="saveImg" type="button" value="Download Photo">
+                    <script>
+                        $("#saveImg").click(function() {
+                            html2canvas(document.getElementById("potato-container"), { onrendered: function(canvas){
+                                return Canvas2Image.saveAsPNG(canvas);
+                            }});
+                        });
+                    </script>
+                </div>    
+                <div id="potato-container" class="col-sm-7">
+                    <div id="top-container" class="body-container">
+                        <h4>Top</h4>
+                    </div>
+                    <div id="middle-container" class="body-container">
+                        <h4>Middle</h4>
+                    </div>
+                    <div id="center-container" class="body-container">
+                        <h4>Center</h4>
+                    </div>
+                    <div id="bottom-container" class="body-container">
+                        <h4>Bottom</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h1>Problem 2 - Image Full Screen</h1>
+            <p>Hover over the image to make it full screen, then click button on the top right corner to exit</p>
+            <div id="full-screen">
+                <div id="exit">
+                    <input type="button" width="100px" height="auto" onclick="exitFull()">
+                </div>
+                <img id="animated-img" src="https://pbs.twimg.com/media/EDE-VaUXYAERJyh.jpg" width="50%" height="auto">
+            </div>
+            <script>
+                //This flags is true when the animation has not occured
+                $(document).ready(function() {
+                    let flag = true;
+                    $("#animated-img").mouseover( function() {
+                        if (flag) {
+                            $("#animated-img").animate({width:'100%', height:'auto'}, 5000, function() {
+                                $("#exit").show();
+                            });
+                            flag = false;
+                        }
+                    });
+                    $("#exit button").click(exitFull())
+                });
+            </script>
+        </div>
+        
+    </body>
+</html>
