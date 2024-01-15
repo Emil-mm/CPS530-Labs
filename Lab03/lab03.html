@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Lab03 - Table of contents</title>
+
+        <style>
+            *{
+                box-sizing:border-box;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+
+            body{
+                background-color: aliceblue;
+            }
+
+            .nav_container {
+                width: 50%;
+                float: left;
+                text-align: center;
+                padding: 25px;
+                background-color: rgb(180, 224, 255);
+                cursor: pointer;
+            }
+
+            .nav_container:hover {
+                background-color: rgb(137, 223, 252);
+            }
+
+            .container{
+                width: 100%;
+                padding: 10px;
+            }
+
+            .row::after {
+                content:""; 
+                clear:both;
+                display:table;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align: center;">Lab 03 - Table Of Contents</h1>
+        <nav class="row">
+            <a id="respDesign" href="https://cs.torontomu.ca/~emoc/lab03/lab03a.html" target="_blank">
+                <div class="nav_container">
+                    Lab 03 Part A
+                </div>
+            </a>
+            <a id="respDesign" href="https://cs.torontomu.ca/~emoc/lab03/lab03b.html" target="_blank">
+                <div class="nav_container">
+                    Lab 03 Part B
+                </div>
+            </a>
+        </nav>
+
+        <article class="container">
+            <h2>Part C - Comparison Analysis</h2>
+            <p>
+                It took me much longer to plan the grid and figure out how to change the format of the responsive design of the webpage in part A. In part A, when trying to make the div containers of equal height using float some of the sections on my page started to disappear for an unknown reason. Formating the div blocks was difficult, I had to learn how to stack and control them to create the desired format at specific sizes with @media. 
+            </p>
+            <p>
+                In part B, Bootstrap took me less time to become familiar with using the grid system with the simple use of the "col-class-span" classes. It was ultimately much easier to format the webpage from mobile to tablet to PC responsive formatting. When using the grid "col-class-span" classes it automatically made the div containers in the same row equal height and changed the screen without an explicitly specified screen size value. However, when I was trying to make my image fill the whole div container, it took me a while to realize there was a default padding included in the "col-class-span" class>. The only challenge I found was that we could not see the properties used in the classes. I prefer part B due to the cleaner code and simpler framework.
+            </p>
+        </article>
+    </body>
+</html>

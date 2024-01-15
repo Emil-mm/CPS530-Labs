@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+/* Fluid Grid */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+/* Large Screens*/
+@media only screen and (min-width: 992px) {
+    [class*="col-"] {
+        float: left; 
+        padding: 10px;
+        flex: 1;
+        font-size: medium;   
+    }
+
+    .row_container {
+        display: flex;
+        width: 100%;
+    } 
+}
+
+/* For Tablets*/
+@media only screen and (min-width: 576px) and (max-width: 992px) {
+    
+    #row4 div.col-3 {
+        padding: 10px;
+        width: 50%;
+    }
+    
+    [class*="col-"] {
+        float: left; 
+        padding: 10px;
+        width: 100%;
+        font-size: medium;
+    }
+}
+
+/*For Mobile Phones*/
+@media only screen and (max-width: 576px) {
+    [class*="col-"] {
+        float: left; 
+        padding: 10px;
+        width: 100%;
+        font-size: medium;
+    }
+}
+
+#banner_img img {
+    width: 100%;
+    Height: auto;
+    overflow: hidden;
+}
+
+.fact {
+    border-color: aliceblue;
+    border-style: solid;
+    background-color: rgb(137, 223, 252);
+}
+
+.fact p, .fact ul{
+    text-align: left;
+}
+.fact img, .food img {
+    width:90%;
+    Height: auto;
+}
+
+.food {
+    border-color: aliceblue;
+    border-style: solid;
+    background-color: rgb(127, 191, 255);
+}
+
+footer ul{
+    list-style-type: none;
+    padding-right:6px; 
+}

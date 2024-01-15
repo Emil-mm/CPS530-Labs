@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Written by Emily Moc, https://cs.torontomu.ca/~emoc/lab06/lab06.html -->
+        <title>Lab06 - SVG</title>
+    </head>
+    <body style="margin: 20px">
+        <h1 style="font-family: 'Calibri'">Problem 1 - Shapes</h1>
+        <div id="p1" style="text-align: center;">
+            <svg width="800px" height="300px">
+                <polygon points="95,10 10,160 180,160" style="fill: #fdfa72; stroke:black; stroke-width:2;"></polygon>
+                <text x="62" y="190" style="font-family: 'Calibri'; font-size: 20px;">Triangle</text>
+                <rect x="210" y="10" style="width: 150px; height: 150px; fill: #7ccce3; stroke:black; stroke-width:2;"></rect>
+                <text x="233" y="190" style="font-family: 'Calibri'; font-size: 20px;">Quadrilateral</text>
+                <polygon points="475,10 395,70 430,160 520,160 555,70  " style="fill: #ffcab9; stroke:black; stroke-width:2;"></polygon>
+                <text x="437" y="190" style="font-family: 'Calibri'; font-size: 20px;">Pentagon</text>
+                <polygon points="655,10 590,50 590,120 655,160 720,120 720,50  " style="fill: #abf1bc; stroke:black; stroke-width:2;"></polygon>
+                <text x="623" y="190" style="font-family: 'Calibri'; font-size: 20px;">Hexagon</text>
+            </svg>
+        </div>
+
+        <h1 style="font-family: 'Calibri'">Problem 2 - Flags</h1>
+        <div style="text-align: center;">   
+            <div>
+                <div style="display: inline-block; vertical-align: top;">
+                    <img src="https://wallpapercave.com/wp/wp3996166.jpg" width="300px" height="auto">
+                    <br>
+                    <svg width="300px" height="30px">
+                        <text x="45" y="20" style="font-family: 'Calibri'; font-size: 20px;">A Raster PNG Flag of Japan</text>
+                    </svg>
+                </div>
+                <div style="display: inline-block; vertical-align: top;">
+                    <svg width="310px" height="250px"> 
+                        <rect x="10" y="9" style="width:280px; height:188px; fill:white; stroke:rgb(134, 133, 133); stroke-width:1;"></rect>
+                        <circle cx="150" cy="102" r="55" style="fill:rgb(235, 5, 5); stroke:rgb(134, 134, 134); stroke-width:1;"></circle>
+                        <text x="70" y="228" style="font-family: 'Calibri'; font-size: 20px;">A SVG Flag of Japan</text>
+                    </svg>
+                </div>
+            </div>
+            <div>
+                <div style="display: inline-block; vertical-align: top;">
+                    <img src="https://cdn.pixabay.com/photo/2021/11/15/09/57/china-6797568_640.png" width="300px" height="200">
+                    <br>
+                    <svg width="300px" height="30px">
+                        <text x="45" y="25" style="font-family: 'Calibri'; font-size: 20px;">A Raster PNG Flag of China</text>
+                    </svg>
+                </div>
+                <div style="display: inline-block; vertical-align: top;">
+                    <svg width="300" height="300">
+                        <rect x="0" y="0" style="width:300px; height:200px; fill:#EE1C25; stroke:rgb(134, 133, 133); stroke-width:1;"></rect>
+                        <polygon id="star" points="35,14.5 23,53 55,29.5 15,29.5 47,53" style="fill: #FFFF00;stroke: #FFFF00;stroke-width:1;fill-rule:nonzero;"></polygon>
+                        <use id="star2" href="#star" x="210" y="-85" transform="rotate(25), scale(0.25)"></use>
+                        <use id="star3" href="#star2" x="18" y="15"></use>
+                        <use id="star4" href="#star3" x="-32" y="53" transform="rotate(-25)"></use>
+                        <use id="star5" href="#star4" x="-51" y="32" transform="rotate(-25)"></use>
+                        <text x="70" y="230" style="font-family: 'Calibri'; font-size: 20px;">A SVG Flag of China</text>
+                    </svg>  
+                </div> 
+            </div>
+            
+            
+        </div>
+    </body>
+</html>
