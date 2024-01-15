@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- https://www.cs.torontomu.ca/~emoc/lab07/lab07b.html -->
+        <title>Lab07b - Perl and CGI</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Archivo&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Archivo Black" rel='stylesheet'>
+	<style>
+		@keyframes bg-gradient {
+	        0% {background-position: 0 50%;}
+			50% {background-position:100% 50%;}
+			100% {background-position: 0 50%;}
+		}
+
+		body {
+			background: linear-gradient(-45deg,SlateBlue 20%, Purple);
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: 400% 400%;
+			animation: bg-gradient 15s ease infinite;
+	    }
+
+	    #registration {
+			box-sizing:border-box;
+			background-color: black;
+			width: 75%;
+			color: white;
+			border-radius: 12px 12px 0px 0px;
+			box-shadow: 5px 10px 3px 2px #999999;
+			padding: 15px;
+			margin: 30px auto 0px;
+			text-align: center;
+			font-family: 'Archivo Black', sans-serif;
+			font-size: calc(15px + 1vw);
+	    }
+		
+		#input-container {
+			box-sizing:border-box;
+			background-color: white;
+			width: 75%;
+	        	border-radius: 0px 0px 12px 12px;
+			box-shadow: 5px 10px 3px 2px #999999;
+			padding: 2% 4%;
+			margin: 0px auto 45px;
+			font-family: 'Roboto', sans-serif;
+			font-weight: 500;
+			font-size: calc(12px + 1vw);
+	    }
+		
+		label {
+			display: inline-block;
+			text-align: left;
+			width: 45%;
+			text-indent: 45px;
+		}
+
+		input {
+			width: 45%;
+			font-family: 'Roboto', sans-serif;
+			font-size: calc(12px + 0.5vw);
+		}
+		
+		input[type=submit] {
+			width: 100px;
+		}
+	</style>
+    </head>
+    <body>
+		<div id="registration">
+			<h1>Registration</h1>
+		</div>
+		<div id="input-container">
+        	<form action="https://www2.cs.torontomu.ca/~emoc/cgi-bin/lab07b.cgi" method="POST" enctype="multipart/form-data">
+	    		<h3>Name</h3>
+				<label for="fname">First Name:</label>
+				<input id="fname" type="text" name="fname" placeholder="e.g. Joe"><br>
+				<label for="lname">Last Name:</label>
+				<input id="lname" type="text" name="lname" placeholder="e.g. Smith"><br><br>
+
+				<h3>Address</h3>
+				<label for="street">Street Name:</label>
+				<input id="street" type="text" name="street" placeholder="e.g. Main St"><br>
+				<label for="city">City:</label>
+				<input id="city" type="text" name="city" placeholder="e.g. Toronto"><br>
+				<label for="pcode">Postal Code:</label>
+				<input id="pcode" type="text" name="pcode" placeholder="e.g. L0L 0L0"><br>
+				<label for="prov">Province:</label>
+				<select id="prov" name="prov">
+					<option value="" disabled selected hidden>Please Select</option>
+					<option value="AB">Alberta</option>
+					<option value="BC">British Columbia</option>
+					<option value="MB">Manitoba</option>
+					<option value="NB">New Brunswick</option>
+					<option value="NL">Newfoundland and Labrador</option>
+					<option value="NS">Nova Scotia</option>
+					<option value="ON">Ontario</option>
+					<option value="PE">Prince Edward Island</option>
+					<option value="QC">Quebec</option>
+					<option value="SK">Saskatchewan</option>
+				</select><br><br>
+
+				<h3>Phone Number</h3>
+				<label for="phoneNum">Phone Number:</label>
+				<input id="phoneNum" type="text" name="phoneNum" placeholder="e.g. 4161234567"><br><br>
+	
+				<h3>Email Address</h3>
+				<label for="email">Email:</label>
+				<input id="email" type="text" name="email" placeholder="e.g. joesmith@gmail.com"><br><br>
+
+				<h3>Profile Picture</h3>
+				<label for="pic">Select a Picture:</label>
+				<input id="pic" type="file" name="pic"><br><br>
+			
+				<div style="text-align: center;">
+						<input type="submit" value="Submit">
+				</div>
+	        </form>
+        </div>	
+    </body>
+</html>

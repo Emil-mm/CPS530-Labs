@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<!-- https://www.cs.torontomu.ca/~emoc/lab10/lab10b.html -->
+		<title>Lab10b - Exploring More Development Options</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Archivo&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Archivo Black" rel='stylesheet'>
+	<style>
+
+		body {
+			background-color: #d3ffa3; 
+		}
+
+		#registration {
+			box-sizing:border-box;
+			background-color: black;
+			width: 75%;
+			color: white;
+			border-radius: 12px 12px 0px 0px;
+			box-shadow: 5px 10px 3px 2px #999999;
+			padding: 15px;
+			margin: 30px auto 0px;
+			text-align: center;
+			font-family: 'Archivo Black', sans-serif;
+			font-size: calc(15px + 1vw);
+		}
+		
+		#input-container {
+			box-sizing:border-box;
+			background-color: white;
+			width: 75%;
+			border-radius: 0px 0px 12px 12px;
+			box-shadow: 5px 10px 3px 2px #999999;
+			padding: 2% 4%;
+			margin: 0px auto 45px;
+			font-family: 'Roboto', sans-serif;
+			font-weight: 500;
+			font-size: calc(12px + 1vw);
+		}
+		
+		label {
+			display: inline-block;
+			text-align: left;
+			width: 45%;
+			text-indent: 45px;
+		}
+
+		input {
+			width: 45%;
+			font-family: 'Roboto', sans-serif;
+			font-size: calc(12px + 0.5vw);
+		}
+		
+		input[type=submit] {
+			width: 100px;
+		}
+	</style>
+    </head>
+    <body>
+		<div id="registration">
+			<h1>Registration</h1>
+		</div>
+		<div id="input-container">
+			<form action method="POST">
+				<label for="city">City</label>
+				<input type="text" id="city" name="city">
+
+				<label for="prov">Province(or State)</label>
+				<input type="text" id="prov" name="prov">
+
+				<label for="country">Country</label>
+				<input type="text" id="country" name="country">
+
+				<label for="url">City Image URL</label>
+				<input type="text" id="url" name="url">
+
+				<div style="text-align: center;">
+					<input type="submit" formaction="https://www2.cs.torontomu.ca/~emoc/cgi-bin/lab10r.cgi" value="Ruby">
+					<input type="submit" formaction="https://www2.cs.torontomu.ca/~emoc/cgi-bin/lab10p.cgi" value="Python">
+				</div>
+			</form>
+
+		</div>	
+	</body>
+</html>
